@@ -6,7 +6,7 @@
 
 This algorithm is a tracking-by-detection method, and focus on the impact of motion prediction on Object Tracking. Most of current tracking methods concentrate on feature extraction and object detector, and pay less attention on the temporal property of tracking task. .
 
-*==I'll add more details when I finish my paper.==*
+*I'll add more details when I finish my paper.*
 
 ### 1.2 Innovations and difficulties
 **Innovations:** 
@@ -15,7 +15,7 @@ This algorithm is a tracking-by-detection method, and focus on the impact of mot
 
 - Kalman Prediction is used to predict the states of bboxes of temporary loss.
 
-- For the occluded target, Relative Motion Model and *Trajectory* Prediction Model are used to recover bboxes' states during their occlusion.
+- For the occluded target, Relative Motion Model and Trajectory Prediction Model are used to recover bboxes' states during their occlusion.
 
 **Difficulties:** 
 
@@ -28,7 +28,7 @@ This algorithm is a tracking-by-detection method, and focus on the impact of mot
 ### 1.3 Occlusion processing
 |Trajectory recovery <br />base on relative motion model|Trajectory prediction|
 |:-:|:-:|
-|![Trajectory recovery base on relative motion model](./elements/Trajectory recovery base on relative motion model.gif)|![Trajectory prediction](./elements/Trajectory prediction.gif)|
+|<img src="./elements/Trajectory_recovery_base_on_relative_motion_model.gif" width="200" height="300">|<img src="./elements/Trajectory_prediction.gif" width="200" height="300">|
 
 Occlusion processing module can predict the trajectory and speed of the target for a period of time to foresee possible future collisions
 
@@ -48,10 +48,10 @@ Occlusion processing module can predict the trajectory and speed of the target f
 
 Re- implementation of classic Correlation Filter Based Single Object Tracking algorithm. MOSSE code can be found in my repository.
 
-|           $$fi$$           |                  $$gi$$                |
+|           fi          |                  gi                |
 | :----------------------: | :-------------------------------------: |
 | ![d](./elements/fi.gif)  |        ![1612527671800](./elements/gi.gif)         |
-|           $$hi$$           |              tracking image              |
+|           hi           |              tracking image              |
 | ![1612527671800](./elements/hi.gif) | ![1612527671800](./elements/current_frame_BGR.gif) |
 
 The most striking advantage of CF based tracking method is its high efficiency. The original MOSSE can achieve 669 FPS. And  many researchers used different features to improve performance, but with little success.
