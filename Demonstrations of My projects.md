@@ -1,6 +1,4 @@
-# My projects
- My projects
-
+# Demonstrations of My projects
 ## 1. Multi-Object Tracking Based on Motion Prediction and Occlusion Recovery
 ### 1.1 Algorithm 
 
@@ -32,10 +30,10 @@ This algorithm is a tracking-by-detection method, and focus on the impact of mot
 
 Occlusion processing module can predict the trajectory and speed of the target for a period of time to foresee possible future collisions
 
-![Occulusion_processing_module_workflow](./elements/Occulusion_processing_module_workflow.png)
+![Occulusion_processing_module_workflow](.\elements\Occulusion_processing_module_workflow.png)
 
 ### 1.4 Expand to 3D
-![3D_tracking](./elements/3D_tracking.gif)
+![3D_tracking](.\elements\3D_tracking.gif)
 
 ### 1.5 To do list
 - [ ] Add trajectories clustering to analyze trajectories in group.
@@ -48,10 +46,10 @@ Occlusion processing module can predict the trajectory and speed of the target f
 
 Re- implementation of classic Correlation Filter Based Single Object Tracking algorithm. MOSSE code can be found in my repository.
 
-|           $$fi$$           |                  $$gi$$                |
+|           $fi$           |                  $gi$                   |
 | :----------------------: | :-------------------------------------: |
 | ![d](./elements/fi.gif)  |        ![1612527671800](./elements/gi.gif)         |
-|           $$hi$$           |              tracking image              |
+|           $hi$           |              tracking image              |
 | ![1612527671800](./elements/hi.gif) | ![1612527671800](./elements/current_frame_BGR.gif) |
 
 The most striking advantage of CF based tracking method is its high efficiency. The original MOSSE can achieve 669 FPS. And  many researchers used different features to improve performance, but with little success.
@@ -66,7 +64,4 @@ However, the classic CF based tracking methods are only applied to Single Object
 |2018|21|Multi-Object Tracking with Correlation Filter for Autonomous Vehicle| 1. Improve detection module by incorporating the temporal information, which is beneficial for detecting small objects; For the tracking module, propose a novel compressed deep CNN feature based CF tracker. <br> 2. Use the response of CF to represent the unrelibility of current track. <br> 3. ACPE is applied to appearence similarity matrix.|Give the summaries of affinity models and data association methods.<br> Key point matching. |
 |2019|21|Multi-object tracking with discriminantcorrelation filter based deep learning tracker|Really LOW FPS||
 |2017|23|Multiple Object Tracking with Kernelized Correlation Filters in Urban Mixed Traffic| They didn’t benefit from the CNN features and only used the overlap between the tracking box and detection to confirm the validity of tracking, which may fail in crowded scenarios. ||
-
-
-
 
