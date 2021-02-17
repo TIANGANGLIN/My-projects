@@ -73,6 +73,101 @@ However, the classic CF based tracking methods are only applied to Single Object
 |2019|21|Multi-object tracking with discriminantcorrelation filter based deep learning tracker|Really LOW FPS||
 |2017|23|Multiple Object Tracking with Kernelized Correlation Filters in Urban Mixed Traffic| They didn’t benefit from the CNN features and only used the overlap between the tracking box and detection to confirm the validity of tracking, which may fail in crowded scenarios. ||
 
+## 3. ROS Object Tracking and Planning
+
+### 3.1  Purpose of the tp5_ros_package
+The purpose of the TP is to see in practice a tracking object within a concrete example, using the simulated TurtleBot2 in Gazebo or on real TurtleBot2. In particular, to track an object in the robot’s environment by using the RGB-D (colour and depth) sensor of TurtleBot2. In the TP, the object is a red balloon or a joker with Aruco Markers.
+
+The provided ROS package allows to track object which is done by the functions as follows:
+- process_random_image: Processing of image with a random picture with Aruco Makers.
+- process_image_circle : Processing of an image with a circle.
+
+## 3.2 Starting the tp5_ros_package with default parameters
+To launch the code, the user can launch directly the ROS simulator by opening a new Terminal and run the code as follows:
+- roslaunch tp5_ros_package TP5.launch
+To visualize the data captured by the sensor, the user needs launch the RVIZ:
+- rosrun rviz rviz tp-5.rviz
+
+### 3.3 Using the tp5_ros_package with default parameters
+After executing the simulator, the user will see the simulation environment of Gazebo:
+
+<p align="center">
+<img src="./elements/Simulation_env.png" >
+</p>
+
+After launching the Rviz, user will see the image captured by the RGB sensor and Depth sensor, and user need to add a processed_Image topic for subscribing the processed image. Now because we haven’t executed the code, so there is no processed image:
+<p align="center">
+<img src="./elements/rviz.png" >
+</p>
+
+#### 3.3.1 Using the tp5_ros_package with Object Tracking Program
+In this case, the screen will display the information as follows:  
+If there is no Aruco markers in the field of view, the Turtlebot will rotate to find the Aruco markers
+- "No Aruco markers in the field of view."
+- "Rotate to find"
+
+To display the center found:
+- "Center of image:"
+
+If the distance is large than the maximum distance, move the TurtleBot close to the objet:
+- "too far"
+- "moving the TurtleBot close to the object"
+  
+To display the average distance between the TurtleBot2 and the object:
+- "Average Distance"
+  
+If the distance is close enough or can't one of the Aruco marker will disappear, stop tracking:
+- "This is the minimum distance in front of object:"
+- "Stop tracking"
+  
+If there is some problem for calculating the depth, move the TurtleBot:
+- "can't calculate the distance, moving to close to object"
+
+**For the case of circle**:
+
+When there is no circle in the TurtleBot2 vision, it will rotate to find a new circle.
+At the end, the TurtleBot will stop at the given distance from the balloon.
+The tracking process will stop when the two conditions are met:
+  1. The distance between the target and the TurtleBot2 is less than given distance (here is 1.6m).
+  2. The center of circle is on the center of Robot vision
+   
+<p align="center">
+<img src="./elements/circle_tracking.png" >
+</p>
+The Terminal will display the information of circle’s center position and its radius.
+<p align="center">
+<img src="./elements/circle_terminal.png" >
+</p>
 
 
+**For the case of Joker:**
+When there is no Aruco markers in the TurtleBot2 vision, it will rotate to find a new circle.
+At the end, the TurtleBot will stop at the given distance from the joker.
+The tracking process will stop when the two conditions are met:
+  1. The distance between the target and the TurtleBot2 is less than given distance (here is 1.6m) and one of the Aruco marker’s center is too close to the image edge.
+  2. The center of circle is on the center of Robot vision
 
+<p align="center">
+<img src="./elements/joker_tracking.png" >
+</p>
+The Terminal will display the information of joker's center position and its radius.
+<p align="center">
+<img src="./elements/joker_terminal.png" >
+</p>
+
+### 3.4 Demo
+In the first Demo, I will show you:	
+1. When the target disappears from the robot vision, to find the circle and the joker.
+2. Control the motion of the robot to have the target near the center of its vision with a given 	distance from it.
+
+[![First_Demo](./elements/FirstDemo.png)](https://youtu.be/ukRI-oX5EZQ)
+
+In the second Demo, I will show you how to track the circle.
+
+[![Second_Demo_Object_Traking](./elements/SecondeDemo.png)](https://youtu.be/I8bdxSklru0)
+
+The third Demo is in real environnement.
+
+<p align="center">
+<img src="./elements/demo_real.gif" >
+</p>
