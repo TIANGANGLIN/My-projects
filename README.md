@@ -32,7 +32,9 @@ This algorithm is a tracking-by-detection method, and focus on the impact of mot
 
 Occlusion processing module can predict the trajectory and speed of the target for a period of time to foresee possible future collisions
 
-![Occulusion_processing_module_workflow](./elements/Occulusion_processing_module_workflow.png)
+<p align="center">
+<img src="./elements/Occulusion_processing_module_workflow.png" >
+</p>
 
 ### 1.4 Expand to 3D
 ![3D_tracking](./elements/3D_tracking.gif)
@@ -48,16 +50,20 @@ Occlusion processing module can predict the trajectory and speed of the target f
 
 Re- implementation of classic Correlation Filter Based Single Object Tracking algorithm. MOSSE code can be found in my repository.
 
-|           fi          |                  gi                |
-| :----------------------: | :-------------------------------------: |
-| ![d](./elements/fi.gif)  |        ![1612527671800](./elements/gi.gif)         |
-|           hi           |              tracking image              |
-| ![1612527671800](./elements/hi.gif) | ![1612527671800](./elements/current_frame_BGR.gif) |
+|tracking image|
+|:-:|
+|  ![1612527671800](./elements/current_frame_BGR.gif) |
+
+ fi|gi|hi| 
+ :----------------------: | :-------------------------------------: |:-:|
+ ![d](./elements/fi.gif)|![1612527671800](./elements/gi.gif)|![1612527671800](./elements/hi.gif)|
+
 
 The most striking advantage of CF based tracking method is its high efficiency. The original MOSSE can achieve 669 FPS. And  many researchers used different features to improve performance, but with little success.
 |MOSSE|CSK|CN|KCF|SAMF, DSST|
 |:-:|:-:|:-:|:-:|:-:|
 |Gray|Gray<br />Circulant matrix|CSK+RGB|CSK+HOG|Multi-feature|
+
 However, the classic CF based tracking methods are only applied to Single Object Tracking. In recent years, some researchers have extended it to multi-target tracking, but this is not a successful extension. In fact, their methods are just multi-SOT rather than MOT. They just track a single object and combine their results without considering the relationship between the targets. Some tiny summary of high citations papers are as follows, and as the number of targets increases, FPS will drop sharply, and the advantages of the CF method will be lost.
 
 |YEAR |CITATIONS| TITILE | Method to combine CF | NOTES |
