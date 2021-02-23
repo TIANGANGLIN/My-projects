@@ -1,4 +1,3 @@
-from itertools import permutations, product
 class Solution():
     def __init__(self,a,t):
         self.a=a 
@@ -12,7 +11,6 @@ class Solution():
         operations = ['+','-','*','/']
         equations_list=[]
         data_list = self.Permutation(a,len(a),repeat_data=None)
-
         operations_list =self.Permutation(operations,len(a)-1,repeat_data=True)
         for i in data_list:
             for j in operations_list:
