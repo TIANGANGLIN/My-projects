@@ -33,7 +33,7 @@ This algorithm is a tracking-by-detection method, and focus on the impact of mot
 Occlusion processing module can predict the trajectory and speed of the target for a period of time to foresee possible future collisions
 
 <p align="center">
-<img src="./elements/Occulusion_processing_module_workflow.png" >
+<img src="./elements/OcclusionHandlingStructure.png" >
 </p>
 
 ### 1.4 Expand to 3D
